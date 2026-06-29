@@ -21,14 +21,14 @@
 <button onclick="dolo('*')">*</button><br>
 
 <button onclick="dolo(0)">0</button>
-<button onclick="dolo('.)">.</button>
-<button onclick="dolo('√')">√</button>
+<button onclick="dolo('.')">.</button>
+<button onclick="squareRoot()">√</button>
 <button onclick="dolo('/')">/</button><br>
 
-<button onclick="dolo('^')">^</button>
+<button onclick="dolo('**')">^</button>
 <button onclick="dolo('(')">(</button>
 <button onclick="dolo(')')">)</button>
-<button onclick="dolo('=')">=</button>
+<button onclick="calculate()">=</button>
 
 <script>
  function dolo(num)
@@ -36,12 +36,24 @@
 const doloshow = document.getElementById('calDisplay');
 doloshow.value += num;
 }
-function formatPati(){
-document.getElementById('calDisplay');
-}
+
 function clearDisplay(){
     const variabo = document.getElementById("calDisplay")
     variabo.value='';
+}
+function calculate() {
+    const display = document.getElementById("calDisplay");
+
+    try {
+        display.value = eval(display.value);
+    } catch {
+        display.value = "Error";
+    }
+}
+function squareRoot() {
+    const display = document.getElementById("calDisplay");
+
+    display.value = Math.sqrt(Number(display.value));
 }
 </script>
 
