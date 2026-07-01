@@ -34,6 +34,7 @@
 <button onclick="dolo(')')">)</button>
 <button onclick="calculate()">=</button>
 </div>
+
 <script>
  function dolo(num)
 {
@@ -45,13 +46,14 @@ function clearDisplay(){
     const variabo = document.getElementById("calDisplay")
     variabo.value='';
 }
-function calculate() {
-    const display = document.getElementById("calDisplay");
 
+function calculate() {
+    let exp = fieldinput.value.replace(/√(\d+)/g, "Math.sqrt($1)");
     try {
-        display.value = eval(display.value);
-    } catch {
-        display.value = "Error";
+        fieldinput.value = eval(exp);
+    }
+    catch (e) {
+        fieldinput.value = "Error";
     }
 }
 function squareRoot() {
