@@ -46,9 +46,11 @@ function clearDisplay(){
     const variabo = document.getElementById("calDisplay")
     variabo.value='';
 }
-
 function calculate() {
+    let fieldinput = document.getElementById("calDisplay");
+
     let exp = fieldinput.value.replace(/√(\d+)/g, "Math.sqrt($1)");
+
     try {
         fieldinput.value = eval(exp);
     }
